@@ -40,6 +40,10 @@ markup(:wikicloth, /mediawiki|wiki/) do |content|
   WikiCloth::WikiCloth.new(:data => content).to_html(:noedit => true)
 end
 
+markup(:texier, /texy/) do |content|
+  Texier.process(content)
+end
+
 command(:rest2html, /re?st(\.txt)?/)
 
 command('asciidoc -s --backend=xhtml11 -o - -', /asciidoc/)
